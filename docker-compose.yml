@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  postgres-db:
+    image: postgres:15
+    container_name: delivery-postgres
+    environment:
+      POSTGRES_DB: delivery_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  delivery-app:
+    build: .
+    container_name: delivery-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres-db
+    restart: on-failure
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-db:5432/delivery_db
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: password123
+
+volumes:
+  postgres_data:
