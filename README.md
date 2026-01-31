@@ -34,7 +34,7 @@ Una API RESTful completa para la gestión de pedidos de comida, construida con *
 
 1.  **Clonar el repositorio:**
     ```bash
-    git clone [https://github.com/TU_USUARIO/delivery-api.git](https://github.com/TU_USUARIO/delivery-api.git)
+    git clone [https://github.com/DNaviaR/delivery-api](https://github.com/DNaviaR/delivery-api)
     cd delivery-api
     ```
 
